@@ -5,14 +5,12 @@ class Employee {
     String surname;
     String address;
 
-    // Costruttore
     public Employee(String newEmployeeName, String newEmployeeSurname, String newEmployeeAddress) {
         name = newEmployeeName;
         surname = newEmployeeSurname;
         address = newEmployeeAddress;
     }
 
-    // Metodo per ottenere i dettagli dell'Employee
     public String getEmployeeDetails() {
         return "Nome: " + name + "\nCognome: " + surname + "\nIndirizzo: " + address;
     }
@@ -23,26 +21,23 @@ class Badge {
     private String badgeIdCode;
     public Employee employee;
 
-    // Metodo statico per tenere traccia del numero di dipendenti
     private static void keepTrackOfEmployeesNumber() {
         totalNumberOfEmployees++;
     }
 
-    // Metodo privato per generare il codice del badge
+
     private String generateBadgeIdCode() {
         String randomCode1 = generateRandomString(3);
         String randomCode2 = generateRandomString(3);
         return randomCode1 + employee.name + employee.surname + randomCode2;
     }
 
-    // Metodo pubblico per mostrare i dettagli del badge
     public void showBadgeDetails() {
         System.out.println("Numero totale di dipendenti tracciati dai badge: " + totalNumberOfEmployees);
         System.out.println("Dettagli dipendente:\n" + employee.getEmployeeDetails());
         System.out.println("Codice Badge: " + badgeIdCode);
     }
 
-    // Metodo privato per generare una stringa casuale di lunghezza specificata
     private String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder randomString = new StringBuilder();
@@ -53,7 +48,7 @@ class Badge {
         return randomString.toString();
     }
 
-    // Costruttore
+
     public Badge(Employee employeeThatNeedsBadge) {
         employee = employeeThatNeedsBadge;
         keepTrackOfEmployeesNumber();
