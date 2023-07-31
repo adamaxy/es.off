@@ -1,0 +1,13 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Employee empleado1 = new Employee("giorgia", "verdi", "via crsispi 78");
+        Employee empleado2 = new Employee("mario", "rossi", "via lopez 71");
+
+        Badge badge1 = new Badge(empleado1);
+        Badge badge2 = new Badge(empleado2);
+
+        badge1.showBadgeDetails();
+        badge2.showBadgeDetails();
+    }
+}
