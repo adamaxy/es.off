@@ -1,44 +1,55 @@
+import java.awt.desktop.ScreenSleepEvent;
 import java.util.Random;
 
-class Employee {
-    String name;
-    String surname;
-    String address;
-
-    public Employee(String newEmployeeName, String newEmployeeSurname, String newEmployeeAddress) {
-        name = newEmployeeName;
-        surname = newEmployeeSurname;
-        address = newEmployeeAddress;
-    }
-
-    public String getEmployeeDetails() {
-        return "Nome: " + name + "\nCognome: " + surname + "\nIndirizzo: " + address;
-    }
-}
-
-class Badge {
+public class Badge {
     private static int totalNumberOfEmployees = 0;
     private String badgeIdCode;
     public Employee employee;
-
-    private static void keepTrackOfEmployeesNumber() {
+private static void keepTrackOfEmployeesNumber(){
         totalNumberOfEmployees++;
     }
+Random random = new Random();
 
+public char createRandom(){
+        int randomInt = Math.abs(random.nextInt());
+        randomInt = 'a' + (randomInt % ('z' - 'a' + 1));
+        char mychar = (char) randomInt;
+        return  mychar;
+    }
 
-    private String generateBadgeIdCode() {
+public String randomString(int lenghtNumber){
+        String mioID = "";
+        for(int i = 0; i < lenghtNumber; i++){
+            mioID += createRandom();
+        }
+        return mioID;
+    }
+private String generateBadgeIdCode(){
+        return randomString(3) + Employee.name + Employee.surName + randomString(3);
+    }
+public void showBadgeDetails() {
+        keepTrackOfEmployeesNumber();
+        System.out.println("Total number of employees tracked by badges: " + totalNumberOfEmployees);
+        System.out.println("Employee Details:\n" + employee.getEmployeeDetails());
+        System.out.println("Badge ID Code: " + badgeIdCode);
+    }
+public Badge(Employee employeeThatNeedsBadge){
+        employee = employeeThatNeedsBadge;
+        badgeIdCode = generateBadgeIdCode();
+
+    }
+}
         String randomCode1 = generateRandomString(3);
         String randomCode2 = generateRandomString(3);
         return randomCode1 + employee.name + employee.surname + randomCode2;
     }
-
-    public void showBadgeDetails() {
+public void showBadgeDetails() {
         System.out.println("Numero totale di dipendenti tracciati dai badge: " + totalNumberOfEmployees);
         System.out.println("Dettagli dipendente:\n" + employee.getEmployeeDetails());
         System.out.println("Codice Badge: " + badgeIdCode);
     }
 
-    private String generateRandomString(int length) {
+private String generateRandomString(int length) {
         String characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         StringBuilder randomString = new StringBuilder();
         Random random = new Random();
@@ -49,7 +60,7 @@ class Badge {
     }
 
 
-    public Badge(Employee employeeThatNeedsBadge) {
+public Badge(Employee employeeThatNeedsBadge) {
         employee = employeeThatNeedsBadge;
         keepTrackOfEmployeesNumber();
         badgeIdCode = generateBadgeIdCode();
