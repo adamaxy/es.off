@@ -1,7 +1,7 @@
 import java.awt.desktop.ScreenSleepEvent;
 import java.util.Random;
 
-public class Badge {
+public class BadgeTester {
     private static int totalNumberOfEmployees = 0;
     private String badgeIdCode;
     public Employee employee;
@@ -70,8 +70,8 @@ public Badge(Employee employeeThatNeedsBadge) {
 public class BadgeTester {
     public static void main(String[] args) {
         // Creazione di due nuovi oggetti Employee
-        Employee employee1 = new Employee("John", "Doe", "Via Roma 123");
-        Employee employee2 = new Employee("Alice", "Smith", "Piazza Italia 7");
+        Employee employee1 = new Employee("mario", "rossi", "via lopez 2g");
+        Employee employee2 = new Employee("giorgia", "verdi", "Piazza Italia 7");
 
         // Creazione di due nuovi oggetti Badge per gli Employee
         Badge badge1 = new Badge(employee1);
