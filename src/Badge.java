@@ -5,9 +5,10 @@ public class Badge {
     private String badgeIdCode;
     public Employee employee;
 
-    Badge(int totalNumbersOfEmployee, String badgeIdCode, Employee employee) {
-        this.badgeIdCode = badgeIdCode;
+    Badge(int i, String number, Employee employee) {
         this.employee = employee;
+        this.badgeIdCode= generaBadgeIdCode();
+        keepTrackOfEmployeesNumber();
     }
 
     public String getBadgeIdCode(){
