@@ -69,15 +69,12 @@ public Badge(Employee employeeThatNeedsBadge) {
 
 public class BadgeTester {
     public static void main(String[] args) {
-        // Creazione di due nuovi oggetti Employee
         Employee employee1 = new Employee("mario", "rossi", "via lopez 2g");
         Employee employee2 = new Employee("giorgia", "verdi", "Piazza Italia 7");
 
-        // Creazione di due nuovi oggetti Badge per gli Employee
         Badge badge1 = new Badge(employee1);
         Badge badge2 = new Badge(employee2);
 
-        // Mostra i dettagli dei badge degli Employee
         System.out.println("Dettagli Badge Dipendente 1:");
         badge1.showBadgeDetails();
 
