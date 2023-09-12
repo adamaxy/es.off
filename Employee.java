@@ -1,7 +1,7 @@
 public class Employee {
-        static String name;
-        static String surName;
-        static String address;
+         String name;
+         String surName;
+         String address;
 
 
         public Employee(String newEmployeeName, String newEmployeeSurname, String newEmployeeAddress){
@@ -13,3 +13,4 @@ public class Employee {
         public String getEmployeeDetails(){
                  return "name is " + name + " and the surnanme is " + surName + " and the address is " + address;
         }
+}
